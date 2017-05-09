@@ -1,24 +1,39 @@
 class Robot:
+    '''表示有一个带有名字的机器人'''
+
+    # 一个类变量，用来计算机器人的数量
     Population = 0
 
     def __init__(self, name):
+        '''初始化数据'''
         self.name = name
         print('(Initializing {})'.format(self.name))
+
+        # 当有人被创建时，机器人将会增加人口数量
         Robot.Population += 1
 
-    def say_hi(self):
-        print('Greetings, my masters call me {}.'.format(self.name))
 
     def die(self):
+        '''我挂了'''
         print('{} is being destroyed!'.format(self.name))
+
         Robot.Population -= 1
+
         if Robot.Population == 0:
             print('{} was the last one.'.format(self.name))
         else:
             print('There are still {} robots working'.format(Robot.Population))
 
+    def say_hi(self):
+        '''来自机器人的诚挚问候
+        
+        没问题，你做得到'''
+        print('Greetings, my masters call me {}.'.format(self.name))
+
     @classmethod
     def how_many(cls):
+        # 这里第一个参数是cls，表示调用当前的类名
+        '''打印出当前的人口数量'''
         print('We have {} robots'.format(Robot.Population))
 
 droid1 = Robot('R2-D2')
