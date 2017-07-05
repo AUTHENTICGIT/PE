@@ -3,10 +3,23 @@ import datetime
 
 text = 'output_1981.10.21.txt'
 m = re.search('output_(\d{4}).(\d{2}).(\d{2})',text)
-
 yy = m.group(1)
 mm = m.group(2)
 dd = m.group(3)
+
+n = re.search('output_(?P<year>\d{4}).(\d{2}).(?P<day>\d\d)', text)
+print(n.group())
+print(n.group('year'))
+print(n.group(2))
+print(n.group('day'))
+
+# mp = re.search('output_(?P<line>(\d{4}).(\d{2}).(\d{2}))',text)
+# print('line =', mp.group('line'))
+# x = re.match('(\d+)(\d+)(\d+)', '1982.10.21')
+# print(x.group(1))
+# print(x.group(2))
+# print(x.group(3))
+
 
 day = datetime.datetime(int(yy), int(mm), int(dd)).strftime('%w')
 
