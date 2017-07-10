@@ -12,6 +12,7 @@ print(request.msg)
 
 # read()方法
 print(request.read())   # 得到返回的网页内容
+print(request.read().encode('utf-8'))   # 也可以用encode将byte类型解码为str类型
 
 # getheaders()方法
 print(request.getheaders()) # 得到响应头信息
